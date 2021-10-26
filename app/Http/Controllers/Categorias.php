@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categoria;
+use Exception;
 use Illuminate\Http\Request;
 
 class Categorias extends Controller
@@ -14,8 +15,15 @@ class Categorias extends Controller
      */
     public function index()
     {
-        $categorias = Categoria::all();
-        return view('categoria.index')->with('categorias', $categorias);
+        try
+        {
+            $categorias = Categoria::all();
+            return view('categoria.index')->with('categorias', $categorias);
+        }
+        catch(\Exception $error)
+        {
+            return redirect()->back()->withError($error->getMessage())->withInput();
+        }
 
     }
 

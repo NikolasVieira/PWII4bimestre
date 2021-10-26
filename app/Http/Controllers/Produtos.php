@@ -14,7 +14,9 @@ class Produtos extends Controller
      */
     public function index()
     {
+
         $produtos = Produto::with('categoria')->get();
+
         return view('produto.index')->with('produtos', $produtos);
     }
 

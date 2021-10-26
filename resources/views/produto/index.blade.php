@@ -5,7 +5,7 @@
 <ul>
     @foreach ($produtos as $p)
     <li>
-        {{ $p['id'] }} | {{ $p['nome'] }} | {{ $p['preco'] }} | {{ $p['estoque'] }} | {{ $p->categoria->nome }}
+        {{ $p['id'] }} | {{ $p['nome'] }} | {{ $p['preco'] }} | {{ $p['estoque'] }} | {{ $p->categoria->id }}
         <a href="{{ route('produto.show', $p['id']) }}">Detalhes</a>
         <a href="{{ route('produto.edit', $p['id']) }}">Alterar</a>
     </li>
