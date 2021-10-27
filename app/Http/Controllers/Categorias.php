@@ -24,7 +24,6 @@ class Categorias extends Controller
         {
             return redirect()->back()->withError($error->getMessage())->withInput();
         }
-
     }
 
     /**

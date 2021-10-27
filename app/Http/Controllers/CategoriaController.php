@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Produto;
 use Illuminate\Http\Request;
+use App\Models\Categoria;
 
-class Produtos extends Controller
+class CategoriaController extends Controller
 {
     public function index()
     {
-        $produtos = Produto::with('categoria')->get();
-        return view('produto.index')->with('produtos', $produtos);
+        $categoria = Categoria::where('status', '=', true)->get();
+        return view('categoria.index', compact('categoria'));
     }
 
     public function create()
