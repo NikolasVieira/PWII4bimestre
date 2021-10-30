@@ -14,9 +14,10 @@ class CreateProdutosTable extends Migration
             $table->float('preco');
             $table->integer('estoque');
             $table->unsignedBigInteger('categoria_id');
-            $table->foreign('categoria_id')->references('id')->on('categorias');
             $table->boolean('status')->default(true);
             $table->timestamps();
+
+            $table->foreign('categoria_id')->references('id')->on('categorias');
         });
     }
 

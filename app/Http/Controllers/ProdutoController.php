@@ -35,7 +35,8 @@ class ProdutoController extends Controller
     public function show($id)
     {
         $produto = Produto::where('id', $id)->first();
-        return view('produto.show', compact('produto'));
+        $chapter = $produto->categoria_id()->first();
+        return view('produto.show', compact('produto', 'chapter'));
     }
 
     public function edit($id)
